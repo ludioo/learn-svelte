@@ -1,6 +1,11 @@
 <script lang="ts">
     // @ts-nocheck
-    export let links: { href: string; label: string }[] = []; // Tentukan tipe eksplisit
+    export let links: { href: string; label: string }[] = [
+        { href: '/', label: 'Home' },
+        { href: '/about', label: 'About' },
+        { href: '/counter', label: 'Counter' },
+        { href: '/postlist', label: 'Post List' }
+    ]; // Default menu, bisa diubah jika diperlukan
 </script>
 
 <nav class="mb-5 flex gap-4">

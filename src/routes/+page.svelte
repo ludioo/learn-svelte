@@ -7,18 +7,10 @@
 	import { count } from '$lib/counterStore.js';
 	let tittle = 'Home Page';
 	let name = '';
-
-	// Daftar menu navigasi (dikirim sebagai props ke Nav.svelte)
-	const menuLinks = [
-		{ href: '/', label: 'Home' },
-		{ href: '/about', label: 'About' },
-		{ href: '/counter', label: 'Counter' },
-		{ href: '/fetch', label: 'Fetch' }
-	];
 </script>
 
 <!-- Navigasi -->
-<Nav links={menuLinks} />
+<Nav/>
 
 <!-- Judul -->
 <div class="bg-blue-500 text-white p-6 rounded-lg shadow-lg space-y-4">

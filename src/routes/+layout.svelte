@@ -6,7 +6,6 @@
 </script>
 
 <div class="min-h-screen bg-gray-100">
-	<Nav />
 	<main class="container mx-auto p-6">
 		<slot />
 	</main>
