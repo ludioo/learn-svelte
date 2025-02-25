@@ -7,5 +7,5 @@
 <input
     bind:value
     placeholder={placeholder}
-    class="mt-4 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+    class="mt-4 p-2 border border-gray rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
 />

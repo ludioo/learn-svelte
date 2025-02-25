@@ -17,6 +17,7 @@
 	const menuLinks = [
 		{ href: '/', label: 'Home' },
 		{ href: '/about', label: 'About' },
+		{ href: '/counter', label: 'Counter' },
 		{ href: '/fetch', label: 'Fetch' }
 	];
 
@@ -25,7 +26,7 @@
 
 <Nav links={menuLinks} />
 
-<div class="bg-red-500 text-white p-6 rounded-lg shadow-lg">
+<div class="bg-slate-500 text-white p-6 rounded-lg shadow-lg">
 	<h1 class="text-3xl font-bold mb-4">Post Detail</h1>
 
 	{#if post}

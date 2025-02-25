@@ -10,6 +10,7 @@
 	const menuLinks = [
 		{ href: '/', label: 'Home' },
 		{ href: '/about', label: 'About' },
+		{ href: '/counter', label: 'Counter' },
 		{ href: '/fetch', label: 'Fetch' }
 	];
 

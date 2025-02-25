@@ -16,7 +16,7 @@
 			class="bg-green-500 text-white px-4 py-2 rounded"
 			on:click={() => count.update((n) => n + 1)}>+</button>
 	</div>
-	<h1 class="text-xl text-blue-700">
+	<h1 class="text-xl text-slate-700">
 		Counter: {$count}
 	</h1>
 </div>
