@@ -26,7 +26,9 @@
 		<ul class="space-y-4">
 			{#each posts as post}
 				<li class="p-4 bg-black border rounded-lg shadow-md">
-					<h2 class="text-lg font-semibold">{post.title}</h2>
+					<a href="/fetch/{post.id}" class="text-blue-400 hover:underline text-lg font-semibold">
+						{post.title}
+					</a>
 					<p class="text-white-600">{post.body}</p>
 				</li>
 			{/each}
