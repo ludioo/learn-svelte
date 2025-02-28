@@ -1,5 +1,5 @@
 import { json } from '@sveltejs/kit';
-import { posts } from '$lib/data/posts.js'; // ✅ Pastikan jalur ini benar
+import { posts } from '$lib/data/posts.js';
 
 // Handle GET request (Mengambil semua posts)
 export async function GET() {
