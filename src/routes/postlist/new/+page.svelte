@@ -43,6 +43,6 @@
     </form>
 
     {#if successMessage}
-        <p class="mt-4 text-green-600">{successMessage}</p>
+        <p class="mt-4 text-green-400">{successMessage}</p>
     {/if}
 </div>

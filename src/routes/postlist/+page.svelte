@@ -14,7 +14,7 @@
         const confirmDelete = confirm("Apakah kamu yakin ingin menghapus post ini?");
         if (!confirmDelete) return;
 
-        const res = await fetch(`/api/posts/${id}`, {
+        const res = await fetch(`/api/posts?id=1`, {
             method: "DELETE"
         });
 

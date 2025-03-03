@@ -9,12 +9,12 @@
 <div class="w-full text-left space-y-1">
     {#if label}
         <!-- svelte-ignore a11y_label_has_associated_control -->
-        <label class="block text-gray-700 font-medium">{label}</label>
+        <label class="block text-white-700 font-medium">{label}</label>
     {/if}
     <input
         type={type}
         bind:value
         placeholder={placeholder}
-        class="w-full p-3 border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 shadow-sm"
+        class="w-full p-3 border border-gray-300 rounded-lg text-white-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 shadow-sm"
     />
 </div>

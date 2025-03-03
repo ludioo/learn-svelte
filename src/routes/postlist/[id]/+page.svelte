@@ -2,27 +2,28 @@
 	// @ts-nocheck
 	import Nav from '$lib/nav.svelte';
 	import { onMount } from 'svelte';
+	import { get } from 'svelte/store';
 	import { page } from '$app/stores';
 
 	let post: { id: number; title: string; body: string } | null = null;
 
 	// Ambil ID dari URL
-	let id = $page.params.id;
+	let id = get(page).params.id;
 
 	// Mengambil data dari API backend kita sendiri
 	async function fetchPost() {
-		const res = await fetch(`/api/posts/${id}`);
+		const res = await fetch(`/api/posts?id=${id}`);
 		if (res.ok) {
 			post = await res.json();
 		} else {
 			post = null; // Jika tidak ditemukan
-			console.error("Post not found:", id);
+			console.error('Post not found:', id);
 		}
 	}
 	onMount(fetchPost);
 </script>
 
-<Nav/>
+<Nav />
 
 <div class="bg-slate-500 text-white p-6 rounded-lg shadow-lg">
 	<h1 class="text-3xl font-bold mb-4">Post Detail</h1>
