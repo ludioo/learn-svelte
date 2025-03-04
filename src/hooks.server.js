@@ -1,21 +1,28 @@
-import { redirect } from '@sveltejs/kit';
+import { createClient } from '@supabase/supabase-js';
+
+// @ts-ignore
+const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY);
 
 export async function handle({ event, resolve }) {
-    const sessionRaw = event.cookies.get('session');
+    const sessionId = event.cookies.get('session'); // Ambil session dari cookies
 
-    console.log("Session in hooks (before parsing):", sessionRaw); // Debugging
+    if (sessionId) {
+        // Ambil user berdasarkan ID dari database
+        const { data: user, error } = await supabase
+            .from('learn-svelte-users')
+            .select('*')
+            .eq('id', sessionId)
+            .single();
 
-    if (sessionRaw) {
-        try {
-            event.locals.user = JSON.parse(sessionRaw);
-            console.log("Parsed user in hooks:", event.locals.user); // Debugging
-        } catch (error) {
-            console.error("Error parsing session in hooks:", error);
-            event.locals.user = null;
+        console.log('User fetched in hooks:', user, error);
+
+        if (user) {
+            event.locals.user = user; // Simpan user lengkap di locals
         }
     } else {
         event.locals.user = null;
     }
 
-    return resolve(event);
+    const response = await resolve(event);
+    return response;
 }

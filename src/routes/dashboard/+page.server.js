@@ -9,6 +9,7 @@ export function load({ locals }) {
     }
 
     return { 
+        // @ts-ignore
         username: locals.user.username 
     };
 }

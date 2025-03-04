@@ -5,41 +5,48 @@
     let username = '';
     let password = '';
     let error = '';
+    let success = '';
 
-    async function login() {
-        const res = await fetch('/api/auth/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username, password })
-        });
+    async function register() {
+    const res = await fetch('/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+    });
 
-        const data = await res.json();
-        if (data.success) {
-            window.location.href = '/dashboard';
-        } else {
-            error = 'Login failed! Check username & password.';
-        }
+    const data = await res.json();
+
+    if (data.success) {
+        success = "Registration successful! Redirecting to login...";
+        setTimeout(() => window.location.href = "/login", 2000);
+    } else {
+        error = "Registration failed: " + (data.error || "Unknown error");
     }
+}
 </script>
 
 <div class="flex items-center justify-center min-h-screen bg-gradient-to-r from-red-500 to-blue-600">
     <div class="bg-white shadow-lg rounded-lg p-8 max-w-sm w-full text-center space-y-6">
-        <h2 class="text-3xl font-bold text-gray-800">Login</h2>
+        <h2 class="text-3xl font-bold text-gray-800">Register</h2>
 
         <Input bind:value={username} label="Username" placeholder="Enter your username" />
         <Input bind:value={password} type="password" label="Password" placeholder="Enter your password" />
 
         <button 
-            on:click={login} 
+            on:click={register} 
             class="w-full bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 transition duration-200"
         >
-            Login
+            Register
         </button>
 
-        <p>Don't have an account? <a href="/register">Sign up here</a></p>
+        <p>Already have an account? <a href="/login">Login here</a></p>
 
         {#if error}
             <p class="text-red-500 text-sm">{error}</p>
+        {/if}
+
+        {#if success}
+            <p class="text-green-500 text-sm">{success}</p>
         {/if}
     </div>
 </div>
